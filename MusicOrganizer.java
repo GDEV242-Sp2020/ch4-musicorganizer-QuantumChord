@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Collections;
 
 /**
  * A class to hold details of audio tracks.
@@ -70,6 +71,14 @@ public class MusicOrganizer
         }
     }
     
+    public void randomPlayAll()
+    {
+        ArrayList<Track> remainingSongs = new ArrayList<Track>(tracks);
+        Collections.shuffle(remainingSongs);
+        for (Track t : remainingSongs) {
+            player.playSample(t.getFilename());
+        }
+    }
     /**
      * Return the number of tracks in the collection.
      * @return The number of tracks in the collection.
